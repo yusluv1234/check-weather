@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { fetchWether } from './api/FetchWether';
+import { fetchWeather } from './api/fetchWeather';
 import './App.css';
 
 const App = () => {
@@ -7,7 +7,8 @@ const App = () => {
 
   const search = async (e) => {
     if(e.key === 'Enter') {
-      const data = await fetchWether(query)
+      const data = await fetchWeather(query)
+      
       console.log(data);
     }
   }
