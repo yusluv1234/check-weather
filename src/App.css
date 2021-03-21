@@ -82,7 +82,7 @@ p {
   align-items: center;
 }
 
-@media only screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .search {
       padding: 20px 15%;
   }
