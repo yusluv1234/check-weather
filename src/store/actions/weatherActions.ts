@@ -2,7 +2,7 @@ import { ThunkAction } from 'redux-thunk';
 import { RootState } from '../index';
 import { GET_WEATHER, SET_ERROR, SET_LOADING, WeatherAction, WeatherData, WeatherError } from '../types';
 
-const API_KEY = process.env.WHEATHER_API_KEY;
+const API_KEY = 'b1507074fdbc577d3d97b9b997f3827e';
 
 export const getWeather = (city: string): ThunkAction<void, RootState, null, WeatherAction> => {
   return async dispatch => {
