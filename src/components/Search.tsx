@@ -1,4 +1,4 @@
-import { FC, FormEvent, useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { setAlert } from "../store/actions/alertActions";
 import { getWeather, setLoading } from "../store/actions/weatherActions";
@@ -7,15 +7,15 @@ interface SearchProps {
   title: string;
 }
 
-const Search: FC<SearchProps> = ({ title }) => {
+const Search: React.FC<SearchProps> = ({ title }) => {
   const dispatch = useDispatch();
-  const [city, setCity] = useState("");
+  const [city, setCity] = React.useState("");
 
-  const changeHandler = (e: FormEvent<HTMLInputElement>) => {
+  const changeHandler = (e: React.FormEvent<HTMLInputElement>) => {
     setCity(e.currentTarget.value);
   };
 
-  const submitHandler = (e: FormEvent<HTMLFormElement>) => {
+  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (city.trim() === "") {
@@ -46,3 +46,5 @@ const Search: FC<SearchProps> = ({ title }) => {
     </div>
   );
 };
+
+export default Search;
