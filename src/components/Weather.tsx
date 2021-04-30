@@ -1,13 +1,13 @@
-import React from "react";
+import React, { FC } from "react";
 import { WeatherData } from "../store/types";
 
 interface WeatherProps {
   data: WeatherData;
 }
 
-const Weather: React.FC<WeatherProps> = ({ data }) => {
-  const fahrenheit = (data.main.temp * 1.8 - 459 - 67).toFixed(2);
-  const celsius = (data.main.temp - 273 - 15).toFixed(2);
+const Weather: FC<WeatherProps> = ({ data }) => {
+  const fahrenheit = (data.main.temp * 1.8 - 459.67).toFixed(2);
+  const celsius = (data.main.temp - 273.15).toFixed(2);
 
   return (
     <section className="section">
@@ -21,23 +21,26 @@ const Weather: React.FC<WeatherProps> = ({ data }) => {
               <p className="heading">{data.weather[0].description}</p>
               <p className="title">
                 <img
-                  src={`https://openweathermap.org/img/wn/${data.weather[0].icon}.png`}
-                  alt="image"
+                  src={`http://openweathermap.org/img/wn/${data.weather[0].icon}.png`}
+                  alt=""
                 />
               </p>
             </div>
           </div>
           <div className="level-item has-text-centered">
-            <div className="title">
-              <p className="mb-2">{data.main.temp}K</p>
-              <p className="mb-2">
-                {fahrenheit}
-                <sup>&#8451;</sup>
-              </p>
-              <p>
-                {celsius}
-                <sup>&#8451;</sup>
-              </p>
+            <div>
+              <p className="heading">temp</p>
+              <div className="title">
+                <p className="mb-2">{data.main.temp}K</p>
+                <p className="mb-2">
+                  {fahrenheit}
+                  <sup>&#8457;</sup>
+                </p>
+                <p>
+                  {celsius}
+                  <sup>&#8451;</sup>
+                </p>
+              </div>
             </div>
           </div>
           <div className="level-item has-text-centered">

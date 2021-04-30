@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC, FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setAlert } from "../store/actions/alertActions";
 import { getWeather, setLoading } from "../store/actions/weatherActions";
@@ -7,20 +7,21 @@ interface SearchProps {
   title: string;
 }
 
-const Search: React.FC<SearchProps> = ({ title }) => {
+const Search: FC<SearchProps> = ({ title }) => {
   const dispatch = useDispatch();
-  const [city, setCity] = React.useState("");
+  const [city, setCity] = useState("");
 
-  const changeHandler = (e: React.FormEvent<HTMLInputElement>) => {
+  const changeHandler = (e: FormEvent<HTMLInputElement>) => {
     setCity(e.currentTarget.value);
   };
 
-  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+  const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (city.trim() === "") {
-      return dispatch(setAlert("city is required"));
+      return dispatch(setAlert("City is required!"));
     }
+
     dispatch(setLoading());
     dispatch(getWeather(city));
     setCity("");
@@ -40,6 +41,12 @@ const Search: React.FC<SearchProps> = ({ title }) => {
               value={city}
               onChange={changeHandler}
             />
+            <button
+              className="button is-primary is-fullwidth"
+              style={{ maxWidth: 300, margin: "0 auto" }}
+            >
+              Search
+            </button>
           </form>
         </div>
       </div>
