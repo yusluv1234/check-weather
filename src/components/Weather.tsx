@@ -54,6 +54,10 @@ const Weather: FC<WeatherProps> = ({ data }) => {
               <p className="heading">pressure</p>
               <p className="title">{data.main.pressure}</p>
             </div>
+            <div>
+              <p className="heading">pressure</p>
+              <p className="title">{data.main.pressure}</p>
+            </div>
           </div>
           <div className="level-item has-text-centered">
             <div>
