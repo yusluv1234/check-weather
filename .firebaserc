@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "my-weather-app-e062d"
+    "default": "my-weather-app-e062d",
+    "my-weather-app": "myweather-app-73c25"
   }
 }
